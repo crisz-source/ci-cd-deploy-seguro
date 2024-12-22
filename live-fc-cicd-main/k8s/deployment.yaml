@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: conversao-temperatura
-        image: fabricioveronez/conversao-temperatura-fc
+        image: crisdockerz/conversao-temperatura-fc
         ports:
         - containerPort: 8080
 ---

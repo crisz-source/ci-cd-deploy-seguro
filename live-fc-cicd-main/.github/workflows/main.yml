@@ -2,7 +2,7 @@ name: CI-CD
 on:
   push:
     branches: ["main"]
-  workflow_dispatch:
+  #workflow_dispatch:
 
 jobs: 
   ci:
@@ -24,8 +24,8 @@ jobs:
           push: true
           file: ./src/Dockerfile
           tags: | 
-            fabricioveronez/conversao-temperatura-fc:latest
-            fabricioveronez/conversao-temperatura-fc:${{ github.run_number }}
+            crisdockerz/conversao-temperatura-fc:latest
+            crisdockerz/conversao-temperatura-fc:${{ github.run_number }}
   cd:
     runs-on: ubuntu-latest
     needs: [ci]
@@ -43,4 +43,4 @@ jobs:
           manifests: |
               ./k8s/deployment.yaml
           images: |
-              fabricioveronez/conversao-temperatura-fc:${{ github.run_number }}
+              crisdockerz/conversao-temperatura-fc:${{ github.run_number }}
